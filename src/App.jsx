@@ -3,6 +3,7 @@ import {useState} from "react";
 import {Header} from "./layout/header/Header.jsx";
 import {Menu} from "./layout/sections/menu/Menu.jsx";
 import {MainBlock} from "./layout/sections/main-block/MainBlock.jsx";
+import {Services} from "./layout/sections/services/Services.jsx";
 
 
 function App() {
@@ -18,6 +19,7 @@ function App() {
                 <Header isMenuOpenCallback={isMenuOpenCallback} openMenu={openMenu} menuItems={menuItems}/>
                 <Menu menuItems={menuItems}/>
                 <MainBlock/>
+                <Services/>
             </Theme>
         </>
     )

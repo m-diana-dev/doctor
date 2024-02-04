@@ -141,6 +141,9 @@ const Menu = styled.div`
   ${props => props.isOpen && css`
     ${MenuBody}{
       top: 54px;
+      @media ${({theme})=>theme.media.mobileSmall}{
+        top: 50px;
+      }
     }
     ${MenuBurger}{
       span {
@@ -213,7 +216,7 @@ const MenuBody = styled.nav`
     background-color: ${({theme}) => theme.colors.colorMain};
     padding: 40px 10px;
     transition: all 0.2s ease 0s;
-    z-index: 4;
+    z-index: 20;
   }
 `
 const MenuList = styled.ul`

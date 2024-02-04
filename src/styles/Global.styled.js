@@ -50,7 +50,7 @@ export const GlobalStyle = createGlobalStyle`
       width: 100%;
       height: 100%;
       background: rgba(0, 0, 0, 0.6);
-      z-index: 2;
+      z-index: 10;
       pointer-events: none;
       opacity: ${(props) => (props.theme.isMenuOpen ? '1' : '0')};
       transition: all .3s;

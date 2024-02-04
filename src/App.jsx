@@ -4,6 +4,7 @@ import {Header} from "./layout/header/Header.jsx";
 import {Menu} from "./layout/sections/menu/Menu.jsx";
 import {MainBlock} from "./layout/sections/main-block/MainBlock.jsx";
 import {Services} from "./layout/sections/services/Services.jsx";
+import {Doctors} from "./layout/sections/doctors/Doctors.jsx";
 
 
 function App() {
@@ -20,6 +21,7 @@ function App() {
                 <Menu menuItems={menuItems}/>
                 <MainBlock/>
                 <Services/>
+                <Doctors/>
             </Theme>
         </>
     )

@@ -9,6 +9,7 @@ import {Appointment} from "./layout/sections/appointment/Appointment.jsx";
 import {About} from "./layout/sections/about/About.jsx";
 import {Price} from "./layout/sections/price/Price.jsx";
 import {Reviews} from "./layout/sections/reviews/Reviews.jsx";
+import {Map} from "./layout/sections/map/Map.jsx";
 
 
 function App() {
@@ -37,6 +38,7 @@ function App() {
                 <About/>
                 <Price/>
                 <Reviews/>
+                <Map/>
             </Theme>
         </>
     )

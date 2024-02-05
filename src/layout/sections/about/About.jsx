@@ -9,7 +9,7 @@ import {useState} from "react";
 export const About = () => {
     const [showVideo, setShowVideo] = useState(false);
     return (
-        <StyledAbout>
+        <StyledAbout id='about'>
             <Container>
                 <SectionTitle>О клинике</SectionTitle>
                 <AboutBtns>

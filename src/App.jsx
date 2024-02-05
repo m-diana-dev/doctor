@@ -10,26 +10,42 @@ import {About} from "./layout/sections/about/About.jsx";
 import {Price} from "./layout/sections/price/Price.jsx";
 import {Reviews} from "./layout/sections/reviews/Reviews.jsx";
 import {Map} from "./layout/sections/map/Map.jsx";
+import {Footer} from "./layout/footer/Footer.jsx";
+import {Sale} from "./layout/modals/sale/Sale.jsx";
+import {Callback} from "./layout/modals/callback/Callback.jsx";
 
 
 function App() {
     const menuItems = [
-        {title: 'О клинике', dropdown: false},
-        {title: 'Услуги', dropdown: true},
-        {title: 'Врачи', dropdown: false},
-        {title: 'Цены', dropdown: false},
-        {title: 'Отзывы', dropdown: false},
-        {title: 'Контакты', dropdown: false}
+        {title: 'О клинике', dropdown: false, link: '#about'},
+        {title: 'Услуги', dropdown: true, link: '#services'},
+        {title: 'Врачи', dropdown: false, link: '#doctors'},
+        {title: 'Цены', dropdown: false, link: '#price'},
+        {title: 'Отзывы', dropdown: false, link: '#reviews'},
+        {title: 'Контакты', dropdown: false, link: '#contacts'}
     ]
     const [openMenu, setOpenMenu] = useState(false)
     const isMenuOpenCallback = (isMenuOpen) => {
         setOpenMenu(isMenuOpen)
     }
 
+    const [openSale, setOpenSale] = useState(true)
+    const isSaleOpenCallback = (isSaleOpen) => {
+        setOpenSale(isSaleOpen)
+    }
+
+    const [openForm, setOpenForm] = useState(false);
+
+    const isFormOpenCallback = (isFormOpen) => {
+        setOpenForm(isFormOpen);
+    };
+
     return (
         <>
-            <Theme isMenuOpen={openMenu}>
-                <Header isMenuOpenCallback={isMenuOpenCallback} openMenu={openMenu} menuItems={menuItems}/>
+            <Theme isMenuOpen={openMenu || openSale || openForm}>
+                <Sale isSaleOpenCallback={isSaleOpenCallback} openSale={openSale}/>
+                <Callback openForm={openForm} isFormOpenCallback={isFormOpenCallback}/>
+                <Header isMenuOpenCallback={isMenuOpenCallback} openMenu={openMenu} menuItems={menuItems} isFormOpenCallback={isFormOpenCallback} openForm={openForm}/>
                 <Menu menuItems={menuItems}/>
                 <MainBlock/>
                 <Services/>
@@ -39,6 +55,7 @@ function App() {
                 <Price/>
                 <Reviews/>
                 <Map/>
+                <Footer menuItems={menuItems}/>
             </Theme>
         </>
     )

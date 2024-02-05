@@ -16,7 +16,7 @@ export const Checkbox = () => {
     );
 }
 
-const StyledCheckbox = styled.div`
+export const StyledCheckbox = styled.div`
   position: relative;
   display: inline-block;
   margin-bottom: 20px;
@@ -71,7 +71,7 @@ const CheckboxLabel = styled.label`
     transition: all .3s;
   }
 `
-const CheckboxText = styled.span`
+export const CheckboxText = styled.span`
   color: rgb(126, 131, 174);
   font-size: 14px;
   line-height: 18px;

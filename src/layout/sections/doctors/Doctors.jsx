@@ -9,7 +9,7 @@ import doctor4 from '../../../assets/images/doctors/item-4.jpeg'
 
 export const Doctors = () => {
     return (
-        <StyledDoctors>
+        <StyledDoctors id='doctors'>
             <Container>
                 <SectionTitle>Наши врачи</SectionTitle>
                 <DoctorsText>

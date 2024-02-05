@@ -23,6 +23,10 @@ export const GlobalStyle = createGlobalStyle`
     // outline: none;
   }
 
+  html {
+    scroll-behavior: smooth;
+  }
+
   html,
   body {
     height: 100%;
@@ -45,7 +49,7 @@ export const GlobalStyle = createGlobalStyle`
     &::before{
       content: '';
       position: fixed;
-      top: 100px;
+      top: 0;
       left: 0;
       width: 100%;
       height: 100%;

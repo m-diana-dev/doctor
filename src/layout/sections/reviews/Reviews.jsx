@@ -6,7 +6,6 @@ import reviews2 from '../../../assets/images/reviews/item-2.png'
 import {ReviewsItem} from "./reviewsItem/ReviewsItem.jsx";
 import AliceCarousel from "react-alice-carousel";
 import 'react-alice-carousel/lib/alice-carousel.css';
-import {Icon} from "../../../components/icon/Icon.jsx";
 import arrowDecorLeft from '../../../assets/images/reviews/arrow-decor-left.svg'
 import arrowDecorRight from '../../../assets/images/reviews/arrow-decor-right.svg'
 
@@ -26,7 +25,7 @@ export const Reviews = () => {
         },
     }
     return (
-        <StyledReviews>
+        <StyledReviews id='reviews'>
             <Container>
                 <SectionTitle>Отзывы</SectionTitle>
                 <ReviewsItems>

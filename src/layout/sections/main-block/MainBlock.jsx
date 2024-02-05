@@ -1,4 +1,3 @@
-import React from 'react';
 import styled from "styled-components";
 import {Container} from "../../../components/Container.js";
 import {FlexWrapp} from "../../../components/FlexWrapp.js";
@@ -17,7 +16,7 @@ export const MainBlock = () => {
                             инновационные методв исследования гарантируют максимально точные результаты диагностики и
                             высокую эффективность лечения.
                         </MainBlockText>
-                        <Button>Записаться на прием</Button>
+                        <Button as={'a'} href='#appointment'>Записаться на прием</Button>
                     </MainBlockContent>
                     <MainBlockImg>
                         <img src={MainImg} alt="main"/>

@@ -1,9 +1,8 @@
-import React from 'react';
 import styled from "styled-components";
 import {Button, StyledButton} from "../../../../components/button/Button.jsx";
 import {Icon} from "../../../../components/icon/Icon.jsx";
 
-export const ServicesItem = ({title, text, buttonText, icon, iconW, iconH, iconBox}) => {
+export const ServicesItem = ({title, text, buttonText, buttonLink, icon, iconW, iconH, iconBox}) => {
     return (
         <StyledServicesItem>
             {icon && <Icon id={icon} width={iconW} height={iconH} viewBox={iconBox}/>}
@@ -11,7 +10,7 @@ export const ServicesItem = ({title, text, buttonText, icon, iconW, iconH, iconB
             <ServicesItemText>
                 {text}
             </ServicesItemText>
-            {buttonText && <Button>{buttonText}</Button>}
+            {buttonText && <Button as='a' href={buttonLink}>{buttonText}</Button>}
         </StyledServicesItem>
     );
 }

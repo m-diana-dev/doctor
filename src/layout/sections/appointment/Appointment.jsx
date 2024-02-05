@@ -8,7 +8,7 @@ import {Checkbox} from "../../../components/checkbox/Checkbox.jsx";
 
 export const Appointment = () => {
     return (
-        <StyledAppointment>
+        <StyledAppointment id='appointment'>
             <Container>
                 <FlexWrapp justify={'space-between'}>
                     <AppointmentContent>
@@ -150,7 +150,7 @@ const FormTitle = styled.div`
    font-size: 18px;
   }
 `
-const Input = styled.input`
+export const Input = styled.input`
   display: inline-block;
   width: 100%;
   height: 50px;

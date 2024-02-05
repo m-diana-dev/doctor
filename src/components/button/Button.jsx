@@ -1,9 +1,8 @@
 import styled from "styled-components";
 
-// eslint-disable-next-line react/prop-types
-export const Button = ({children, onClick}) => {
+export const Button = ({children, onClick, as, href}) => {
     return (
-        <StyledButton onClick={onClick}>
+        <StyledButton as={as} onClick={onClick} href={href}>
             <span>{children}</span>
         </StyledButton>
     );

@@ -1,4 +1,3 @@
-import React from 'react';
 import styled from "styled-components";
 import {Container} from "../../../components/Container.js";
 import {Icon} from "../../../components/icon/Icon.jsx";
@@ -9,7 +8,7 @@ export const Menu = ({menuItems}) => {
             <Container>
                 <MenuNav>
                     <MenuList>
-                        {menuItems.map(el => <MenuItem><MenuLink href="">
+                        {menuItems.map(el => <MenuItem><MenuLink href={el.link}>
                             {el.title} {el.dropdown && <Icon id={'arrow-bottom'} width={'10'} height={'6'} viewBox={'0 0 10 6'}/>}
                         </MenuLink></MenuItem>)}
                     </MenuList>

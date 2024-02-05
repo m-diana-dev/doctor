@@ -1,9 +1,11 @@
 import {Icon} from "../../components/icon/Icon.jsx";
 import styled from "styled-components"
 
+// eslint-disable-next-line react/prop-types
 export const Social = ({items}) => {
     return (
         <SocialList>
+            {/* eslint-disable-next-line react/prop-types */}
             {items.map(el => <SocialItem><SocialLink href='#'><Icon id={el} width={'20'} height={'20'} viewBox={'0 0 20 20'}/></SocialLink></SocialItem>)}
         </SocialList>
     );

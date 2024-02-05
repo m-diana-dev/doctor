@@ -5,7 +5,7 @@ import {PriceItem} from "./priceItem.jsx";
 
 export const Price = () => {
     return (
-        <StyledPrice>
+        <StyledPrice id='price'>
             <Container>
                 <SectionTitle>Услуги и цены</SectionTitle>
                 <PriceItems>

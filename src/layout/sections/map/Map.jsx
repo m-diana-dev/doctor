@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const Map = () => {
     return (
-        <StyledMap>
+        <StyledMap id='contacts'>
             <MapTitle>Набережные Челны</MapTitle>
             <iframe
                 src="https://yandex.ru/map-widget/v1/?um=constructor%3A7c8ab49153bae924032544c550c4a526289d6cde741678ab4574abbd95c9c574&amp;source=constructor"

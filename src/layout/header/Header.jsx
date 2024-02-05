@@ -6,13 +6,17 @@ import {Social, SocialList} from "../../components/social/Social.jsx";
 import {Icon} from "../../components/icon/Icon.jsx";
 import {useState} from "react";
 
-export const Header = ({openMenu, isMenuOpenCallback, menuItems}) => {
+export const Header = ({openMenu, isMenuOpenCallback, menuItems, isFormOpenCallback, openForm}) => {
     const [isMenuOpen, setIsMenuOpen] = useState(openMenu);
 
     const onBurgerHandler = () => {
         setIsMenuOpen(!isMenuOpen)
         isMenuOpenCallback(!isMenuOpen)
     }
+
+    const onBtnHandler = () => {
+        isFormOpenCallback(!openForm);
+    };
 
     return (
         <StyledHeader>
@@ -25,7 +29,7 @@ export const Header = ({openMenu, isMenuOpenCallback, menuItems}) => {
                         <HeaderTime>Ежедневно: 11:00 – 15:00</HeaderTime>
                         <HeaderConnection>
                             <HeaderPhone href='tel:89646987677'>8 (964) 698-76-77</HeaderPhone>
-                            <HeaderBtn>Обратный звонок</HeaderBtn>
+                            <HeaderBtn onClick={onBtnHandler}>Обратный звонок</HeaderBtn>
                         </HeaderConnection>
                         <Social items={['whatsapp', 'telegram']}></Social>
                         <HeaderSearch>
@@ -35,7 +39,7 @@ export const Header = ({openMenu, isMenuOpenCallback, menuItems}) => {
                             <MenuBurger onClick={onBurgerHandler}><span></span></MenuBurger>
                             <MenuBody>
                                 <MenuList>
-                                    {menuItems.map(el => <MenuItem><MenuLink href="">{el.title}</MenuLink></MenuItem>)}
+                                    {menuItems.map(el => <MenuItem><MenuLink onClick={onBurgerHandler} href={el.link}>{el.title}</MenuLink></MenuItem>)}
                                 </MenuList>
                             </MenuBody>
                         </Menu>
@@ -50,6 +54,8 @@ const StyledHeader = styled.header`
   padding: 3px 0;
   box-shadow: 0px 2px 10px 0px rgba(78, 127, 222, 0.2);
   background: rgb(255, 255, 255);
+  position: relative;
+  z-index: 11;
 `
 const Logo = styled.div`
     img{
@@ -165,6 +171,7 @@ const Menu = styled.div`
 const MenuBurger = styled.button`
   display: none;
   position: relative;
+  z-index: 11;
   transition: all .3s;
 
   @media ${({theme}) => theme.media.mobile} {

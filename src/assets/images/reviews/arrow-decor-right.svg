@@ -1,0 +1,22 @@
+<svg width="20.000732" height="10.000000" viewBox="0 0 20.0007 10" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+	<desc>
+			Created with Pixso.
+	</desc>
+	<defs>
+		<linearGradient id="paint_linear_6_77_0" x1="14.192917" y1="0.000000" x2="14.192917" y2="10.000000" gradientUnits="userSpaceOnUse">
+			<stop stop-color="#22A0D9"/>
+			<stop offset="1.000000" stop-color="#33C1CC" stop-opacity="0.000000"/>
+		</linearGradient>
+		<linearGradient id="paint_linear_6_79_0" x1="5.098979" y1="3.997559" x2="5.098979" y2="5.990201" gradientUnits="userSpaceOnUse">
+			<stop stop-color="#22A0D9"/>
+			<stop offset="1.000000" stop-color="#33C1CC" stop-opacity="0.000000"/>
+		</linearGradient>
+		<linearGradient id="paint_linear_6_81_0" x1="1.054903" y1="3.997559" x2="1.054903" y2="5.990592" gradientUnits="userSpaceOnUse">
+			<stop stop-color="#22A0D9"/>
+			<stop offset="1.000000" stop-color="#33C1CC" stop-opacity="0.000000"/>
+		</linearGradient>
+	</defs>
+	<path id="Vector" d="M19.6788 4.22095L15.7567 0.31897C15.3735 -0.0623169 14.7427 -0.119019 14.3398 0.242676C13.9102 0.627075 13.8973 1.28595 14.3009 1.68793L16.0786 3.45691C16.2795 3.65668 16.1372 3.99768 15.8534 3.99768L9.44299 3.99768C8.90063 3.99768 8.41486 4.40161 8.38654 4.94043C8.35626 5.51447 8.81537 5.9903 9.38641 5.9903L15.8534 5.9903C16.1372 5.9903 16.2795 6.33167 16.0786 6.53107L14.341 8.26019C13.9578 8.64142 13.9012 9.26904 14.264 9.66943C14.6507 10.0968 15.3134 10.1097 15.717 9.70856L19.6788 5.76666C20.108 5.34003 20.108 4.64752 19.6788 4.22095Z" fill="url(#paint_linear_6_77_0)" fill-opacity="1.000000" fill-rule="nonzero"/>
+	<path id="Vector" d="M5.67615 3.99756L4.52222 3.99756C3.96918 3.99756 3.52075 4.44373 3.52075 4.9939C3.52075 5.54407 3.96918 5.99017 4.52222 5.99017L5.67615 5.99017C6.22913 5.99017 6.67719 5.54407 6.67719 4.9939C6.67719 4.44373 6.22913 3.99756 5.67615 3.99756Z" fill="url(#paint_linear_6_79_0)" fill-opacity="1.000000" fill-rule="nonzero"/>
+	<path id="Vector" d="M1.10913 3.99756L1.00104 3.99756C0.448425 3.99756 0 4.44409 0 4.99426C0 5.54443 0.448425 5.9906 1.00104 5.9906L1.10876 5.9906C1.66217 5.9906 2.1098 5.54443 2.1098 4.99426C2.1098 4.44409 1.66217 3.99756 1.10913 3.99756Z" fill="url(#paint_linear_6_81_0)" fill-opacity="1.000000" fill-rule="nonzero"/>
+</svg>

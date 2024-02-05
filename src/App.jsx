@@ -5,10 +5,19 @@ import {Menu} from "./layout/sections/menu/Menu.jsx";
 import {MainBlock} from "./layout/sections/main-block/MainBlock.jsx";
 import {Services} from "./layout/sections/services/Services.jsx";
 import {Doctors} from "./layout/sections/doctors/Doctors.jsx";
+import {Appointment} from "./layout/sections/appointment/Appointment.jsx";
+import {About} from "./layout/sections/about/About.jsx";
 
 
 function App() {
-    const menuItems = ['О клинике', 'Услуги', 'Врачи', 'Цены', 'Отзывы', 'Контакты']
+    const menuItems = [
+        {title: 'О клинике', dropdown: false},
+        {title: 'Услуги', dropdown: true},
+        {title: 'Врачи', dropdown: false},
+        {title: 'Цены', dropdown: false},
+        {title: 'Отзывы', dropdown: false},
+        {title: 'Контакты', dropdown: false}
+    ]
     const [openMenu, setOpenMenu] = useState(false)
     const isMenuOpenCallback = (isMenuOpen) => {
         setOpenMenu(isMenuOpen)
@@ -22,6 +31,8 @@ function App() {
                 <MainBlock/>
                 <Services/>
                 <Doctors/>
+                <Appointment/>
+                <About/>
             </Theme>
         </>
     )

@@ -35,7 +35,7 @@ export const Header = ({openMenu, isMenuOpenCallback, menuItems}) => {
                             <MenuBurger onClick={onBurgerHandler}><span></span></MenuBurger>
                             <MenuBody>
                                 <MenuList>
-                                    {menuItems.map(el => <MenuItem><MenuLink href="">{el}</MenuLink></MenuItem>)}
+                                    {menuItems.map(el => <MenuItem><MenuLink href="">{el.title}</MenuLink></MenuItem>)}
                                 </MenuList>
                             </MenuBody>
                         </Menu>

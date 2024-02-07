@@ -1,5 +1,7 @@
 import styled from "styled-components";
 
+
+//компонент кнопки
 export const Button = ({children, onClick, as, href}) => {
     return (
         <StyledButton as={as} onClick={onClick} href={href}>
@@ -8,6 +10,7 @@ export const Button = ({children, onClick, as, href}) => {
     );
 }
 
+//стили компонента кнопки
 export const StyledButton = styled.button`
   display: flex;
   padding: 13px;

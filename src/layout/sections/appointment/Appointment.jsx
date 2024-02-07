@@ -4,9 +4,26 @@ import {FlexWrapp} from "../../../components/FlexWrapp.js";
 import {SectionTitle} from "../../../components/SectionTitle.js";
 import {Button, StyledButton} from "../../../components/button/Button.jsx";
 import bg from "../../../assets/images/appointment/bg.jpeg"
+import calendarImg from "../../../assets/images/appointment/calendar.svg"
 import {Checkbox} from "../../../components/checkbox/Checkbox.jsx";
+import {Controller, useForm} from "react-hook-form";
 
+//секция запись на прием
 export const Appointment = () => {
+
+    //используем библиотеку react-hook-form для работы с формой
+    const {
+        register,
+        formState: {
+            errors
+        },
+        handleSubmit,
+        control
+    } = useForm({
+        mode: "onBlur"
+    })
+
+    //отрисовка секции
     return (
         <StyledAppointment id='appointment'>
             <Container>
@@ -27,17 +44,55 @@ export const Appointment = () => {
                             записи заранее.
                         </AppointmentText>
                     </AppointmentContent>
-                    <AppointmentForm>
+                    <AppointmentForm onSubmit={handleSubmit(()=>{})}>
                         <AppointmentFormWrapp>
                             <FormTitle>Записаться на приём</FormTitle>
                             <InputsWrapp>
-                                <Input placeholder='ФИО' type="text"></Input>
-                                <Input placeholder='Номер телефона' type="text"></Input>
-                                <Input placeholder='Услуга' type="text"></Input>
-                                <Input placeholder='19/02/24' type="date"></Input>
+                                <InputWrapp>
+                                    {/*Используем функционал библиотеки react-hook-form, валидируем поля*/}
+                                    <Input {...register('fio',
+                                        {
+                                            required: 'обязательное поле',
+                                            minLength: {value: 5, message: 'минимальная длина - 5 символов'}
+                                        })}
+                                           placeholder='ФИО' type="text"></Input>
+                                    {/*Отрисовыаем ошибки, если они есть*/}
+                                    {errors?.fio && <FormError>{errors.fio.message && errors.fio.message.toString()}</FormError>}
+                                </InputWrapp>
+                                <InputWrapp>
+                                    {/*Используем функционал библиотеки react-hook-form, валидируем поля*/}
+                                    <Input {...register('phone',
+                                        {required: 'обязательное поле', pattern: {value: /^\+?[78][-\(]?\d{3}\)?-?\d{3}-?\d{2}-?\d{2}$/, message: 'некорректный номер'}})} placeholder='Номер телефона' type="text"></Input>
+                                    {/*Отрисовыаем ошибки, если они есть*/}
+                                    {errors?.phone && <FormError>{errors.phone.message && errors.phone.message.toString()}</FormError>}
+                                </InputWrapp>
+                                <InputWrapp>
+                                    {/*Используем функционал библиотеки react-hook-form, валидируем поля*/}
+                                    <Input {...register('service',
+                                    {required: 'обязательное поле'})} placeholder='Услуга' type="text"></Input>
+                                    {errors?.service && <FormError>{errors.service.message && errors.service.message.toString()}</FormError>}
+                                </InputWrapp>
+                                <InputWrapp>
+                                    {/*Используем функционал библиотеки react-hook-form, валидируем поля*/}
+                                    <Input {...register('date',
+                                    {required: 'обязательное поле'})} placeholder='19/02/24' type="date"></Input>
+                                    {/*Отрисовыаем ошибки, если они есть*/}
+                                    {errors?.date && <FormError>{errors.date.message && errors.date.message.toString()}</FormError>}
+                                </InputWrapp>
                                 <Button>Записаться на прием</Button>
                             </InputsWrapp>
-                            <Checkbox/>
+                            {/*Используем функционал библиотеки react-hook-form, валидируем поля*/}
+                            <Controller
+                                name="agree"
+                                control={control}
+                                defaultValue={true}
+                                rules={{
+                                    required: true,
+                                }}
+                                render={({ field: { onChange, value } }) => (
+                                    <Checkbox checked={value} onChange={onChange} />
+                                )}
+                            />
                         </AppointmentFormWrapp>
                     </AppointmentForm>
                 </FlexWrapp>
@@ -46,6 +101,7 @@ export const Appointment = () => {
     );
 }
 
+// стили секции
 const StyledAppointment = styled.section`
   padding: 68px 0;
   background-image: url(${bg});
@@ -125,6 +181,14 @@ const AppointmentForm = styled.form`
       border-radius: 3px;
     }
   }
+
+  input[type=date]::-webkit-calendar-picker-indicator {
+    opacity: 0;
+  }
+
+  input[type=date] {
+    background: url(${calendarImg}) no-repeat 95% 50%;
+  }
 `
 const AppointmentFormWrapp = styled.div`
   width: 100%;
@@ -147,23 +211,19 @@ const FormTitle = styled.div`
     margin-bottom: 20px;
   }
   @media ${({theme}) => theme.media.mobile} {
-   font-size: 18px;
+    font-size: 18px;
   }
 `
-export const Input = styled.input`
-  display: inline-block;
-  width: 100%;
-  height: 50px;
-  padding: 0 20px;
-  border-radius: 6px;
-  box-shadow: inset 0px 4px 4px 0px rgba(201, 210, 234, 0.29);
-  background: rgba(201, 210, 234, 0.1);
-  font-size: 16px;
-  line-height: 26px;
+const FormError = styled.div`
+  position: absolute;
+  bottom: -15px;
+  font-size: 14px;
+  color: #c40a0a;
+`
 
-  &::placeholder {
-    color: rgb(126, 131, 174);
-  }
+const InputWrapp = styled.div`
+  position: relative;
+  width: 100%;
 
   &:nth-child(1),
   &:nth-child(2),
@@ -189,6 +249,21 @@ export const Input = styled.input`
     @media screen and (max-width: 1400px) {
       margin-bottom: 10px;
     }
+  }
+`
+export const Input = styled.input`
+  display: inline-block;
+  width: 100%;
+  height: 50px;
+  padding: 0 20px;
+  border-radius: 6px;
+  box-shadow: inset 0px 4px 4px 0px rgba(201, 210, 234, 0.29);
+  background: rgba(201, 210, 234, 0.1);
+  font-size: 16px;
+  line-height: 26px;
+
+  &::placeholder {
+    color: rgb(126, 131, 174);
   }
 `
 

@@ -7,6 +7,8 @@ import doctor2 from '../../../assets/images/doctors/item-2.jpeg'
 import doctor3 from '../../../assets/images/doctors/item-3.jpeg'
 import doctor4 from '../../../assets/images/doctors/item-4.jpeg'
 
+
+//секция врачи
 export const Doctors = () => {
     return (
         <StyledDoctors id='doctors'>
@@ -26,6 +28,8 @@ export const Doctors = () => {
     );
 }
 
+
+//стили секции врачи
 const StyledDoctors = styled.section`
   padding: 100px 0 80px;
   background: linear-gradient(180.00deg, rgb(241, 248, 255) 2.422%,rgba(233, 237, 246, 0) 97.667%);

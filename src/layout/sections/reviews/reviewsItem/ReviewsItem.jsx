@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-// eslint-disable-next-line react/prop-types
+// компонент отзыва, принимает пропсы name, img, text
 export const ReviewsItem = ({name, img, text}) => {
     return (
         <StyledReviewsItem>
@@ -14,7 +14,7 @@ export const ReviewsItem = ({name, img, text}) => {
         </StyledReviewsItem>
     );
 }
-
+// стили
 const StyledReviewsItem = styled.article`
   border-radius: 20px;
   box-shadow: 0px 10px 26px 0px rgba(165, 175, 197, 0.24);

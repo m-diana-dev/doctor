@@ -1,5 +1,6 @@
 import styled from "styled-components";
 
+//стили для контейнера сайта
 export const Container = styled.div`
   position: relative;
   max-width: 1650px;

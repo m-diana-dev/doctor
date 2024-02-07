@@ -2,6 +2,8 @@ import styled from "styled-components";
 import {Button, StyledButton} from "../../../../components/button/Button.jsx";
 import {Icon} from "../../../../components/icon/Icon.jsx";
 
+
+//компонент услуги сайта, принимает пропсы title, text, buttonText, buttonLink, icon, iconW, iconH, iconBox
 export const ServicesItem = ({title, text, buttonText, buttonLink, icon, iconW, iconH, iconBox}) => {
     return (
         <StyledServicesItem>
@@ -15,6 +17,8 @@ export const ServicesItem = ({title, text, buttonText, buttonLink, icon, iconW, 
     );
 }
 
+
+//стили услуги сайта
 export const StyledServicesItem = styled.article`
   display: flex;
   flex-direction: column;

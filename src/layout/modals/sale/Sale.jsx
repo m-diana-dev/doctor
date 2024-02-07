@@ -3,19 +3,20 @@ import {CloseBtn} from "../CloseBtn.jsx";
 import {StyledModalTile} from "../ModalTitle.js";
 import {Button, StyledButton} from "../../../components/button/Button.jsx";
 import {Icon} from "../../../components/icon/Icon.jsx";
-import {useState} from "react";
 import Countdown from "react-countdown";
 
 
+// Модальное окносо скидкой. принимает как пропсы openSale, isSaleOpenCallback для изменения состояния
 export const Sale = ({openSale, isSaleOpenCallback}) => {
-    const [isSaleOpen, setIsSaleOpen] = useState(openSale);
 
+    // Функция обратного вызова, которая меняет состояние модального окна, с ее помощью закрываем модальное окно
     const onModalHandler = () => {
-        setIsSaleOpen(!isSaleOpen)
-        isSaleOpenCallback(!isSaleOpen)
+        isSaleOpenCallback(!openSale)
     }
+
+    // Отрисовка модального окна
     return (
-        <StyledSale isOpen={isSaleOpen}>
+        <StyledSale isOpen={openSale}>
             <CloseBtn onModalHandler={onModalHandler}/>
             <StyledModalTile>
                 Cкидка 10% на первое посещение
@@ -23,6 +24,7 @@ export const Sale = ({openSale, isSaleOpenCallback}) => {
             <SaleTime>
                 <Icon id='clock' width={'55'} height={'55'} viewBox={'0 0 56 56'}/>
                 <SaleTimeTimer>
+                    {/*Используем библиотеку react-countdown для счетчика*/}
                     <Countdown date={Date.now() + 500000000}/>
                     <SaleTimeDays><span>дней</span><span>часов</span><span>минут</span><span>секунд</span></SaleTimeDays>
                 </SaleTimeTimer>
@@ -31,6 +33,9 @@ export const Sale = ({openSale, isSaleOpenCallback}) => {
         </StyledSale>
     );
 }
+
+
+// стили для модального окна
 
 const StyledSale = styled.div`
   display: none;

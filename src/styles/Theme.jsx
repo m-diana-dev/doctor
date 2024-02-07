@@ -20,6 +20,7 @@ export const theme = {
 export const Theme = ({children, isMenuOpen}) => {
     return (
         <ThemeProvider theme={{ ...theme, isMenuOpen }}>
+            {/*Глобальные стили сайта*/}
             <GlobalStyle/>
             {children}
         </ThemeProvider>

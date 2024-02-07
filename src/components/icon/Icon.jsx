@@ -1,5 +1,7 @@
 import iconSprite from '../../assets/images/icons-sprite.svg'
 
+
+//компонент icon для отрисовки иконок из svg спрайта. принимает пропсы id,width,height,viewBox
 export const Icon = ({
                                             id,
                                             width,

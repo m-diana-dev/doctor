@@ -1,10 +1,11 @@
-import React from 'react';
 import styled from "styled-components";
 import {Container} from "../../../components/Container.js";
 import {FlexWrapp} from "../../../components/FlexWrapp.js";
 import {SectionTitle} from "../../../components/SectionTitle.js";
 import {ServicesItem, ServicesItemText, StyledServicesItem} from "./servicesItem/ServicesItem.jsx";
 
+
+//секция услуга
 export const Services = () => {
     return (
         <ServicesStyled id='services'>
@@ -31,6 +32,7 @@ export const Services = () => {
     );
 }
 
+// стили секции услуги
 const ServicesStyled = styled.section`
   padding: 128px 0 100px;
   @media ${({theme}) => theme.media.tablet} {

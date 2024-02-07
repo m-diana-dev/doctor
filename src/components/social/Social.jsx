@@ -1,7 +1,7 @@
 import {Icon} from "../../components/icon/Icon.jsx";
 import styled from "styled-components"
 
-// eslint-disable-next-line react/prop-types
+// компонент социальных сетей, принимает как пропсы массив из социальных сетей items
 export const Social = ({items}) => {
     return (
         <SocialList>
@@ -11,6 +11,8 @@ export const Social = ({items}) => {
     );
 }
 
+
+// стили для социальных сетей
 export const SocialList = styled.ul`
   display: flex;
   align-items: center;

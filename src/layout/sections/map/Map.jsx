@@ -1,5 +1,6 @@
 import styled from "styled-components";
 
+//секция с картой
 export const Map = () => {
     return (
         <StyledMap id='contacts'>
@@ -10,7 +11,7 @@ export const Map = () => {
         </StyledMap>
     );
 }
-
+//стили секции
 const StyledMap = styled.section`
   position: relative;
   height: 600px;

@@ -1,5 +1,6 @@
 import styled from "styled-components";
 
+//Стили для заголовка секции сата
 export const SectionTitle = styled.h2`
   color: ${({theme})=>theme.colors.title};
   font-size: 36px;

@@ -4,6 +4,8 @@ import {FlexWrapp} from "../../../components/FlexWrapp.js";
 import {Button, StyledButton} from "../../../components/button/Button.jsx";
 import MainImg from '../../../assets/images/main-block/main.jpeg'
 
+
+//Главный блок сайта
 export const MainBlock = () => {
     return (
         <StyledMainBlock>
@@ -27,6 +29,7 @@ export const MainBlock = () => {
     );
 }
 
+//стили главного блока сайта
 const StyledMainBlock = styled.section`
   background: linear-gradient(90.00deg, rgb(11, 121, 186),rgb(59, 186, 194) 100%);
   padding: 90px 0;

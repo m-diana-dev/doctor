@@ -4,6 +4,7 @@ import {FlexWrapp} from "../../components/FlexWrapp.js";
 import LogoImg from "../../assets/images/logo-footer.png";
 import {Social, SocialList} from "../../components/social/Social.jsx";
 
+//footer принимает как пропсы menuItems - пункты меню
 export const Footer = ({menuItems}) => {
     return (
         <StyledFooter>
@@ -39,6 +40,8 @@ export const Footer = ({menuItems}) => {
     );
 }
 
+
+//стили футера
 const StyledFooter = styled.footer`
   background: linear-gradient(90.00deg, rgb(12, 102, 156), rgb(59, 186, 194) 100%);
   color: ${({theme}) => theme.colors.lightText};

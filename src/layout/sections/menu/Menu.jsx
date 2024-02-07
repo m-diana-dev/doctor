@@ -2,6 +2,8 @@ import styled from "styled-components";
 import {Container} from "../../../components/Container.js";
 import {Icon} from "../../../components/icon/Icon.jsx";
 
+
+//секция сайта Меню принимает как пропсы menuItems - пункты меню
 export const Menu = ({menuItems}) => {
     return (
         <StyledMenu>
@@ -17,6 +19,8 @@ export const Menu = ({menuItems}) => {
         </StyledMenu>
     );
 }
+
+//стили для меню
 
 const StyledMenu = styled.section`
   padding: 100px 0 20px;

@@ -3,6 +3,8 @@ import {Container} from "../../../components/Container.js";
 import {SectionTitle} from "../../../components/SectionTitle.js";
 import {PriceItem} from "./priceItem.jsx";
 
+
+//секция сайта цены
 export const Price = () => {
     return (
         <StyledPrice id='price'>
@@ -21,7 +23,7 @@ export const Price = () => {
         </StyledPrice>
     );
 }
-
+// стили секции
 const StyledPrice = styled.section`
   padding: 36px 0 46px;
   @media ${({theme}) => theme.media.tablet} {

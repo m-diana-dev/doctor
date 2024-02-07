@@ -6,7 +6,10 @@ import aboutImg from "../../../assets/images/about/img.jpeg"
 import aboutVideo from "../../../assets/images/about/video.mp4"
 import {useState} from "react";
 
+
+//секция О клинике
 export const About = () => {
+    //отслеживаем состояние, для переключения фото/видео. используем хук useState
     const [showVideo, setShowVideo] = useState(false);
     return (
         <StyledAbout id='about'>
@@ -34,7 +37,7 @@ export const About = () => {
         </StyledAbout>
     );
 }
-
+//стили секции
 const StyledAbout = styled.section`
   padding: 100px 0 67px;
   @media ${({theme})=>theme.media.tablet}{

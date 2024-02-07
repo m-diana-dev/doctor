@@ -4,20 +4,23 @@ import {FlexWrapp} from "../../components/FlexWrapp.js";
 import LogoImg from '../../assets/images/logo.png'
 import {Social, SocialList} from "../../components/social/Social.jsx";
 import {Icon} from "../../components/icon/Icon.jsx";
-import {useState} from "react";
 
+
+//Шапка сайта, принимает пропсы openMenu, isMenuOpenCallback, menuItems, isFormOpenCallback, openForm
 export const Header = ({openMenu, isMenuOpenCallback, menuItems, isFormOpenCallback, openForm}) => {
-    const [isMenuOpen, setIsMenuOpen] = useState(openMenu);
 
+
+    //функция отрабатывает при клике по бугрег меню (меняет состояние бургер меню)
     const onBurgerHandler = () => {
-        setIsMenuOpen(!isMenuOpen)
-        isMenuOpenCallback(!isMenuOpen)
+        isMenuOpenCallback(!openMenu)
     }
-
+//функция отрабатывает при клике по кнопке обратный звонок (меняет состояние модального окна с формой)
     const onBtnHandler = () => {
         isFormOpenCallback(!openForm);
     };
 
+
+    //отрисовка шапки сайта
     return (
         <StyledHeader>
             <Container>
@@ -35,7 +38,7 @@ export const Header = ({openMenu, isMenuOpenCallback, menuItems, isFormOpenCallb
                         <HeaderSearch>
                             <Icon id={'search'} width={'20'} height={'20'} viewBox={'0 0 20 20'}/>
                         </HeaderSearch>
-                        <Menu isOpen={isMenuOpen}>
+                        <Menu isOpen={openMenu}>
                             <MenuBurger onClick={onBurgerHandler}><span></span></MenuBurger>
                             <MenuBody>
                                 <MenuList>
@@ -50,6 +53,7 @@ export const Header = ({openMenu, isMenuOpenCallback, menuItems, isFormOpenCallb
     );
 }
 
+//стили для шапки
 const StyledHeader = styled.header`
   padding: 3px 0;
   box-shadow: 0px 2px 10px 0px rgba(78, 127, 222, 0.2);

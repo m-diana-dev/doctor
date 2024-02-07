@@ -1,5 +1,6 @@
 import styled from "styled-components";
 
+//Стили для Flex обертки
 export const FlexWrapp = styled.div`
   display: flex;
   flex-direction: ${props => props.direction || 'row'};

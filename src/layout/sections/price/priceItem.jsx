@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import {Icon} from "../../../components/icon/Icon.jsx";
 
-// eslint-disable-next-line react/prop-types
+// компонент цены, принимает пропсы title, value
 export const PriceItem = ({title, value}) => {
     return (
         <StyledPriceItem>
@@ -11,7 +11,7 @@ export const PriceItem = ({title, value}) => {
         </StyledPriceItem>
     );
 }
-
+// стили компонента
 const StyledPriceItem = styled.div`
   display: flex;
   align-items: center;

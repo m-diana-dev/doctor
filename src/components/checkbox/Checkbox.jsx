@@ -1,12 +1,12 @@
 import styled from "styled-components";
 import check from '../../assets/images/appointment/check.svg'
 
-
-export const Checkbox = () => {
+//компонент Checkbox
+export const Checkbox = ({checked, onChange}) => {
     return (
         <StyledCheckbox>
-            <CheckboxInput id="c_1" type="checkbox"></CheckboxInput>
-            <CheckboxLabel for="c_1">
+            <CheckboxInput type="checkbox" checked={checked} onChange={onChange}></CheckboxInput>
+            <CheckboxLabel>
                 <CheckboxText>
                     Нажимая кнопку, я соглашаюсь с Политикой конфиденциальности и условиями обработки
                     персональных данных
@@ -16,6 +16,7 @@ export const Checkbox = () => {
     );
 }
 
+//стили компонента Checkbox
 export const StyledCheckbox = styled.div`
   position: relative;
   display: inline-block;
@@ -45,15 +46,14 @@ const CheckboxInput = styled.input`
 const CheckboxLabel = styled.label`
   cursor: pointer;
   display: inline-flex;
-  align-items: center;
   position: relative;
   font-size: 16px;
   @media ${({theme}) => theme.media.mobileSmall} {
     font-size: 14px;
   }
   &:before {
+    margin-top: 5px;
     content: "";
-    align-self: center;
     flex: 0 0 14px;
     width: 14px;
     height: 14px;
@@ -66,7 +66,7 @@ const CheckboxLabel = styled.label`
     height: 9px;
     transform: scale(0);
     position: absolute;
-    top: 7px;
+    top: 2px;
     left: 2px;
     transition: all .3s;
   }

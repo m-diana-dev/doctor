@@ -1,5 +1,7 @@
 import styled from "styled-components";
 
+
+//компонент врача, принимает пропсы img, name, position
 export const DoctorsItem = ({img, name, position}) => {
     return (
         <StyledDoctorsItem>
@@ -12,6 +14,7 @@ export const DoctorsItem = ({img, name, position}) => {
     );
 }
 
+//стили компонента врача
 export const StyledDoctorsItem = styled.article`
   overflow: hidden;
   border-radius: 20px;

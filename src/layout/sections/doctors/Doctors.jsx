@@ -31,13 +31,13 @@ export const Doctors = () => {
 
 //стили секции врачи
 const StyledDoctors = styled.section`
-  padding: 100px 0 80px;
+  padding: 80px 0 50px;
   background: linear-gradient(180.00deg, rgb(241, 248, 255) 2.422%,rgba(233, 237, 246, 0) 97.667%);
   @media ${({theme})=>theme.media.tablet}{
-    padding: 80px 0;
+    padding: 60px 0 40px;
   }
   @media ${({theme})=>theme.media.mobile}{
-    padding: 50px 0;
+    padding: 30px 0;
   }
   ${Container}{
     z-index: 2;

@@ -6,7 +6,7 @@ export const Social = ({items}) => {
     return (
         <SocialList>
             {/* eslint-disable-next-line react/prop-types */}
-            {items.map(el => <SocialItem><SocialLink href='#'><Icon id={el} width={'20'} height={'20'} viewBox={'0 0 20 20'}/></SocialLink></SocialItem>)}
+            {items.map(el => <SocialItem key={el.id}><SocialLink href='#'><Icon id={el.title} width={'40'} height={'40'} viewBox={'0 0 40 40'}/></SocialLink></SocialItem>)}
         </SocialList>
     );
 }
@@ -19,34 +19,32 @@ export const SocialList = styled.ul`
 `
 const SocialItem = styled.li`
   &:not(:last-child){
-    margin-right: 14px;
-    @media ${({theme}) => theme.media.mobile} {
-      margin-right: 10px;
-    }
+    margin-right: 8px;
   }
 `
 const SocialLink = styled.a`
   display: block;
-  height: 46px;
-  width: 46px;
+  height: 40px;
+  width: 40px;
+  border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  border-radius: 4px;
-  box-shadow: 0px 6px 10px 0px rgba(201, 210, 234, 0.4);
-  background: ${({theme})=>theme.colors.primaryBg};
   transition: all .3s;
   @media (any-hover: hover){
     &:hover{
-       box-shadow: none;
+      box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
     }
   }
   @media ${({theme}) => theme.media.mobile} {
     height: 35px;
     width: 35px;
+    svg{
+      height: 35px;
+      width: 35px;
+    }
   }
   svg{
-    transform: translateY(2px);
     transition: all .3s;
   }
 `

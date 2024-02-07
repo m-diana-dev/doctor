@@ -24,11 +24,16 @@ export const StyledServicesItem = styled.article`
   flex-direction: column;
   border-radius: 6px;
   background: rgb(11, 121, 186);
-  padding: 40px;
+  padding: 45px 60px 70px;
+  min-height: 310px;
   color: ${({theme}) => theme.colors.lightText};
   position: relative;
+  @media screen and (max-width: 1400px){
+    padding: 40px;
+  }
   @media ${({theme})=>theme.media.tablet}{
     padding: 30px;
+    min-height: auto;
   }
   @media ${({theme})=>theme.media.mobile}{
     padding: 20px;
@@ -36,10 +41,18 @@ export const StyledServicesItem = styled.article`
 
   svg {
     position: absolute;
-    top: 42px;
-    right: 20px;
-    @media ${({theme})=>theme.media.mobile}{
-      
+    top: 80px;
+    right: 60px;
+    @media screen and (max-width: 1590px){
+      top: 20px;
+      right: 20px;
+    }
+    @media screen and (max-width: 1400px){
+      top: 10px;
+      right: 10px;
+      transform: scale(0.8);
+    }
+    @media ${({theme})=>theme.media.tablet}{
       display: none;
     }
   }
@@ -71,6 +84,6 @@ export const ServicesItemText = styled.p`
   line-height: 160%;
   flex: 1 1 auto;
   &:not(:last-child){
-    margin-bottom: 36px;
+    margin-bottom: 10px;
   }
 `

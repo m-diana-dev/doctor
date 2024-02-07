@@ -1,6 +1,5 @@
 import styled from "styled-components";
 import {Container} from "../../../components/Container.js";
-import {Icon} from "../../../components/icon/Icon.jsx";
 
 
 //секция сайта Меню принимает как пропсы menuItems - пункты меню
@@ -10,8 +9,8 @@ export const Menu = ({menuItems}) => {
             <Container>
                 <MenuNav>
                     <MenuList>
-                        {menuItems.map(el => <MenuItem><MenuLink href={el.link}>
-                            {el.title} {el.dropdown && <Icon id={'arrow-bottom'} width={'10'} height={'6'} viewBox={'0 0 10 6'}/>}
+                        {menuItems.map(el => <MenuItem key={el.id}><MenuLink href={el.link}>
+                            {el.title}
                         </MenuLink></MenuItem>)}
                     </MenuList>
                 </MenuNav>
@@ -66,8 +65,5 @@ const MenuLink = styled.a`
     &:hover {
       color: ${({theme}) => theme.colors.colorMain};
     }
-  }
-  svg{
-    margin-left: 6px;
   }
 `

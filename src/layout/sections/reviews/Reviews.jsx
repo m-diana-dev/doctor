@@ -3,6 +3,8 @@ import {Container} from "../../../components/Container.js";
 import {SectionTitle} from "../../../components/SectionTitle.js";
 import reviews1 from '../../../assets/images/reviews/item-1.png'
 import reviews2 from '../../../assets/images/reviews/item-2.png'
+import reviews3 from '../../../assets/images/reviews/item-3.png'
+import reviews4 from '../../../assets/images/reviews/item-4.png'
 import {ReviewsItem} from "./reviewsItem/ReviewsItem.jsx";
 import AliceCarousel from "react-alice-carousel";
 import 'react-alice-carousel/lib/alice-carousel.css';
@@ -18,8 +20,10 @@ export const Reviews = () => {
                      text={'Очень высокий уровень теоретических и практических знаний, даже в отвлеченных от офтальмологии темах. На обследовании подробное и систематизированное изложение необходимой информации с готовностью в каждый момент углубленно объяснить любой аспект и ответить на любой вопрос. Общая манера общения ненавязчивая и более чем приятная. Спасибо за профессионализм и тёплый приём. Желаю удачи на работе всему коллективу и довольных пациентов!!!'}/>,
         <ReviewsItem key={2} img={reviews1} name={'Марина Александрова'}
                      text={'В связи с глазной проблемой 1 февраля 24-го года пришлось впервые побывать в клинике «Доктор» г. Набержные Челны. Что хочу отметить кроме современного оборудования; понравились отзывчивость и слаженная работа этого центра. Особенно большое спасибо врачу Зульфие Шакирзяновне за её профессионализм и порядочность. Желаю пациентам выздоровления, а медперсоналу никогда не болеть!'}/>,
-        <ReviewsItem key={3} img={reviews2} name={'Анастасия Сиваева'}
-                     text={'Очень высокий уровень теоретических и практических знаний, даже в отвлеченных от офтальмологии темах. На обследовании подробное и систематизированное изложение необходимой информации с готовностью в каждый момент углубленно объяснить любой аспект и ответить на любой вопрос. Общая манера общения ненавязчивая и более чем приятная. Спасибо за профессионализм и тёплый приём. Желаю удачи на работе всему коллективу и довольных пациентов!!!'}/>
+        <ReviewsItem key={3} img={reviews3} name={'Ирина Евгеньевна'}
+                     text={'Обратилась для обследования с жалобами на ухудшение зрения. Очень повезло попасть к такому внимательному доктору. Лейля Салихова опытный специалист, тщательно провела осмотр, дала рекомендации, выслушала все волнующие вопросы, успокоила и выписала лечение. Я осталась очень довольна, как приёмом, так и общением с доктором, все по делу. Лечение помогло.'}/>,
+        <ReviewsItem key={4} img={reviews4} name={'Мария Викторовна'}
+                     text={'Очень высокий уровень теоретических и практических знаний, даже в отвлеченных от офтальмологии темах. На обследовании подробное и систематизированное изложение необходимой информации с готовностью в каждый момент углубленно объяснить любой аспект и ответить на любой вопрос. Общая манера общения ненавязчивая и более чем приятная.'}/>
     ]
     //адаптив для слайдера
     const responsive = {
@@ -51,12 +55,9 @@ export const Reviews = () => {
 
 //стили секции
 const StyledReviews = styled.section`
-  padding: 40px 0 105px;
+  padding: 10px 0 70px;
   @media ${({theme})=>theme.media.tablet}{
-    padding: 40px 0;
-  }
-  @media ${({theme})=>theme.media.mobile}{
-    padding: 30px 0;
+    padding: 10px 0;
   }
 
   ${SectionTitle} {
@@ -65,7 +66,7 @@ const StyledReviews = styled.section`
       margin-bottom: 35px;
     }
     @media ${({theme}) => theme.media.mobile} {
-      margin-bottom: 25px;
+      margin-bottom: 20px;
     }
   }
 `
@@ -78,10 +79,15 @@ const ReviewsItems = styled.div`
   .alice-carousel__stage {
     display: flex
   }
+  .alice-carousel__dots {
+    @media ${({theme})=>theme.media.tablet}{
+      margin: 0px 3px 5px;
+    }
+  }
 
   .alice-carousel__wrapper {
     padding-top: 10px;
-    padding-bottom: 50px;
+    padding-bottom: 40px;
     @media ${({theme})=>theme.media.tablet}{
       padding-bottom: 29px;
     }

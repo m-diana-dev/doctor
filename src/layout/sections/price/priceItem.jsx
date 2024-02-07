@@ -1,11 +1,9 @@
 import styled from "styled-components";
-import {Icon} from "../../../components/icon/Icon.jsx";
 
 // компонент цены, принимает пропсы title, value
 export const PriceItem = ({title, value}) => {
     return (
         <StyledPriceItem>
-            <Icon id={'arrow-right'} width={'10'} height={'20'} viewBox={'0 0 10 20'}/>
             <PriceItemTitle>{title}</PriceItemTitle>
             <PriceItemValue>{value} ₽</PriceItemValue>
         </StyledPriceItem>
@@ -36,19 +34,6 @@ const StyledPriceItem = styled.div`
   }
   @media screen and (max-width: 370px) {
     font-size: 16px;
-  }
-  svg{
-    margin-right: 23px;
-    @media ${({theme}) => theme.media.tablet} {
-      margin-right: 10px;
-      width: 7px;
-      height: 16px;
-    }
-    @media ${({theme}) => theme.media.mobile} {
-      margin-right: 7px;
-      width: 5px;
-      height: 14px;
-    }
   }
 `
 const PriceItemTitle = styled.div`

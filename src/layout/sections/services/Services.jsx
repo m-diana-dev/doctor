@@ -21,11 +21,11 @@ export const Services = () => {
                                   buttonText={'Выбрать услугу'}
                                   buttonLink={'#price'}/>
                     <ServicesItem title={'Диагностика'}
-                                  text={'Диагностика зрения у детей (0+) и взрослых: бесконтактно и безболезненно.'}
-                                  icon={'services1'} iconW={'60'} iconH={'48'} iconBox={'0 0 60 50'}/>
+                                  text={'В арсенале нашей клиники имеется широкий спектр диагностического оборудования, в том числе уникальные модели, для диагностики глазных заболеваний.'}
+                                  icon={'services1'} iconW={'90'} iconH={'81'} iconBox={'0 0 60 51'}/>
                     <ServicesItem title={'Оптика'}
-                                  text={'Если вы нуждаетесь в коррекции зрения, мы подберем качественные и безопасные очки или линзы для глаз.'}
-                                  icon={'services2'} iconW={'80'} iconH={'30'} iconBox={'0 0 80 32'}/>
+                                  text={'Подбор очков для зрения или контактных линз — это весьма важная задача, требующая максимально точного решения. Именно от него будет зависеть острота зрения пациента и, следовательно, безопасность его жизни.'}
+                                  icon={'services2'} iconW={'121'} iconH={'108'} iconBox={'0 0 80 51'}/>
                 </FlexWrapp>
             </Container>
         </ServicesStyled>
@@ -34,16 +34,10 @@ export const Services = () => {
 
 // стили секции услуги
 const ServicesStyled = styled.section`
-  padding: 128px 0 100px;
-  @media ${({theme}) => theme.media.tablet} {
-    padding: 80px 0;
-  }
-  @media ${({theme}) => theme.media.mobile} {
-    padding: 50px 0;
-  }
+  padding: 40px 0 10px;
 
   ${SectionTitle} {
-    margin-bottom: 48px;
+    margin-bottom: 50px;
     @media ${({theme}) => theme.media.tablet} {
       margin-bottom: 35px;
     }
@@ -54,6 +48,7 @@ const ServicesStyled = styled.section`
 
   ${StyledServicesItem} {
     margin: 0 15px;
+    width: calc(48% - 30px);
     @media ${({theme}) => theme.media.tablet} {
       margin: 0 5px;
     }
@@ -63,8 +58,7 @@ const ServicesStyled = styled.section`
 
     &:nth-child(1),
     &:nth-child(2) {
-      width: calc(48% - 30px);
-      margin-bottom: 30px;
+      margin-bottom: 15px;
       justify-content: center;
       text-align: center;
       @media ${({theme}) => theme.media.tablet} {
@@ -78,7 +72,7 @@ const ServicesStyled = styled.section`
       ${ServicesItemText} {
         max-width: 355px;
         text-align: left;
-        margin: 0 auto 36px;
+        margin: 0 auto 10px;
         @media screen and (max-width: 600px) {
           max-width: 100%;
           text-align: center;
@@ -88,7 +82,6 @@ const ServicesStyled = styled.section`
 
     &:nth-child(3),
     &:nth-child(4) {
-      width: calc(33% - 30px);
       min-width: 385px;
       @media ${({theme}) => theme.media.tablet} {
         width: calc(50% - 10px);
@@ -103,7 +96,7 @@ const ServicesStyled = styled.section`
       }
 
       ${ServicesItemText} {
-        max-width: 230px;
+        max-width: 350px;
         @media ${({theme}) => theme.media.mobile} {
           max-width: 100%;
         }

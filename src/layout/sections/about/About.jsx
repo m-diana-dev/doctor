@@ -39,12 +39,15 @@ export const About = () => {
 }
 //стили секции
 const StyledAbout = styled.section`
-  padding: 100px 0 67px;
+  padding: 70px 0 67px;
   @media ${({theme})=>theme.media.tablet}{
-    padding: 80px 0;
+    padding: 60px 0;
   }
   @media ${({theme})=>theme.media.mobile}{
     padding: 50px 0;
+  }
+  @media ${({theme})=>theme.media.mobileSmall}{
+    padding: 40px 0;
   }
 
   ${SectionTitle} {

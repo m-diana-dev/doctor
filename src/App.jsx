@@ -18,12 +18,12 @@ import {Callback} from "./layout/modals/callback/Callback.jsx";
 function App() {
     // Массив пунктов меню для всего сайта, title - заголовок, link - якорь для прокрутки к определенному блоку
     const menuItems = [
-        {title: 'О клинике', dropdown: false, link: '#about'},
-        {title: 'Услуги', dropdown: true, link: '#services'},
-        {title: 'Врачи', dropdown: false, link: '#doctors'},
-        {title: 'Цены', dropdown: false, link: '#price'},
-        {title: 'Отзывы', dropdown: false, link: '#reviews'},
-        {title: 'Контакты', dropdown: false, link: '#contacts'}
+        {id: 1, title: 'О клинике', link: '#about'},
+        {id: 2, title: 'Услуги', link: '#services'},
+        {id: 3, title: 'Врачи', link: '#doctors'},
+        {id: 4, title: 'Цены', link: '#price'},
+        {id: 5, title: 'Отзывы', link: '#reviews'},
+        {id: 6, title: 'Контакты', link: '#contacts'}
     ]
 
     // Сосотояние для мобильного меню сайта, используем хук useState из React

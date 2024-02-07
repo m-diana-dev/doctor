@@ -34,7 +34,7 @@ export const Header = ({openMenu, isMenuOpenCallback, menuItems, isFormOpenCallb
                             <HeaderPhone href='tel:89646987677'>8 (964) 698-76-77</HeaderPhone>
                             <HeaderBtn onClick={onBtnHandler}>Обратный звонок</HeaderBtn>
                         </HeaderConnection>
-                        <Social items={['whatsapp', 'telegram']}></Social>
+                        <Social items={[{id: 1, title: 'vk'}, {id: 2, title: 'ok'}]}></Social>
                         <HeaderSearch>
                             <Icon id={'search'} width={'20'} height={'20'} viewBox={'0 0 20 20'}/>
                         </HeaderSearch>
@@ -42,7 +42,7 @@ export const Header = ({openMenu, isMenuOpenCallback, menuItems, isFormOpenCallb
                             <MenuBurger onClick={onBurgerHandler}><span></span></MenuBurger>
                             <MenuBody>
                                 <MenuList>
-                                    {menuItems.map(el => <MenuItem><MenuLink onClick={onBurgerHandler} href={el.link}>{el.title}</MenuLink></MenuItem>)}
+                                    {menuItems.map(el => <MenuItem key={el.id}><MenuLink onClick={onBurgerHandler} href={el.link}>{el.title}</MenuLink></MenuItem>)}
                                 </MenuList>
                             </MenuBody>
                         </Menu>
@@ -77,9 +77,12 @@ const HeaderWrapp = styled.div`
   align-items: center;
   color: rgb(27, 29, 50); 
   ${SocialList}{
-    margin-right: 25px;
+    margin-right: 60px;
+    @media ${({theme})=>theme.media.desktop}{
+      margin-right: 40px;
+    }
     @media ${({theme})=>theme.media.tablet}{
-      margin-right: 15px;
+      margin-right: 20px;
     }
     @media ${({theme}) => theme.media.mobileSmall} {
       display: none;
@@ -138,7 +141,7 @@ const HeaderBtn = styled.button`
 `
 const HeaderSearch = styled.button`
   align-self: flex-end;
-  margin-bottom: 4px;
+  margin-bottom: 7px;
   @media ${({theme})=>theme.media.mobile}{
     display: none;
   }

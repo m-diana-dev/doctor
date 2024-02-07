@@ -3,6 +3,7 @@ import {Container} from "../../components/Container.js";
 import {FlexWrapp} from "../../components/FlexWrapp.js";
 import LogoImg from "../../assets/images/logo-footer.png";
 import {Social, SocialList} from "../../components/social/Social.jsx";
+import {Icon} from "../../components/icon/Icon.jsx";
 
 //footer принимает как пропсы menuItems - пункты меню
 export const Footer = ({menuItems}) => {
@@ -15,15 +16,17 @@ export const Footer = ({menuItems}) => {
                             <img src={LogoImg} alt="logo"/>
                         </Logo>
                         <FooterMenu>
-                            <FooterMenuTitle>Пациентам</FooterMenuTitle>
                             <FooterMenuList>
-                                {menuItems.map(el => <FooterMenuItem><FooterMenuLink href={el.link}>{el.title}</FooterMenuLink></FooterMenuItem>)}
+                                {menuItems.map(el => <FooterMenuItem key={el.id}><FooterMenuLink href={el.link}>{el.title}</FooterMenuLink></FooterMenuItem>)}
                             </FooterMenuList>
                         </FooterMenu>
                         <FooterConnection>
                             <FooterTime>Ежедневно  11:00 – 15:00</FooterTime>
-                            <FooterPhone href='tel:79646987677'>8 (964) 698-76-77</FooterPhone>
-                            <Social items={['whatsapp', 'telegram']}></Social>
+                            <FooterPhone href='tel:79646987677'>
+                                <Icon id={'phone'} width={'15'} height={'16'} viewBox={'0 0 16 16'}/>
+                                8 (964) 698-76-77
+                            </FooterPhone>
+                            <Social items={[{id: 1, title: 'vk'}, {id: 2, title: 'ok'}]}></Social>
                         </FooterConnection>
                     </FlexWrapp>
                 </Container>
@@ -32,7 +35,6 @@ export const Footer = ({menuItems}) => {
                 <Container>
                     <FlexWrapp justify={'center'}>
                         <FooterBottomItem>© 2024 Все права защищены</FooterBottomItem>
-                        <FooterBottomItem as='a' href='#'>Политика конфиденцильности</FooterBottomItem>
                     </FlexWrapp>
                 </Container>
             </FooterBottom>
@@ -47,7 +49,7 @@ const StyledFooter = styled.footer`
   color: ${({theme}) => theme.colors.lightText};
 `
 const FooterBody = styled.div`
-  padding: 35px 0 50px;
+  padding: 55px 0 70px;
   @media ${({theme}) => theme.media.mobile} {
     padding: 25px 0 40px;
   }
@@ -83,15 +85,6 @@ const FooterMenu = styled.nav`
     margin-bottom: 20px;
   }
 `
-const FooterMenuTitle = styled.div`
-  color: rgb(27, 29, 50);
-  font-size: 24px;
-  font-weight: 500;
-  margin-bottom: 20px;
-  @media ${({theme}) => theme.media.tablet} {
-    font-size: 20px;
-  }
-`
 const FooterMenuList = styled.ul`
   -moz-column-count: 2;
   -webkit-column-count: 2;
@@ -121,6 +114,7 @@ const FooterTime = styled.div`
   margin-bottom: 15px;
 `
 const FooterPhone = styled.a`
+  position: relative;
   display: block;
   font-size: 20px;
   font-weight: 500;
@@ -128,10 +122,19 @@ const FooterPhone = styled.a`
   @media ${({theme}) => theme.media.tablet} {
     font-size: 18px;
   }
+  svg{
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    left: -25px;
+    @media ${({theme}) => theme.media.mobile} {
+      left: -15px;
+    }
+  }
 `
 
 const FooterBottom = styled.div`
-  background: rgba(27, 29, 50, 0.26);
+  border-top: 1px solid #000;
   padding: 14px 0;
   ${FlexWrapp}{
     @media ${({theme})=>theme.media.mobile}{

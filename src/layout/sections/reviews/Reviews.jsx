@@ -55,7 +55,7 @@ export const Reviews = () => {
 
 //стили секции
 const StyledReviews = styled.section`
-  padding: 10px 0 70px;
+  padding: 25px 0 25px;
   @media ${({theme})=>theme.media.tablet}{
     padding: 10px 0;
   }

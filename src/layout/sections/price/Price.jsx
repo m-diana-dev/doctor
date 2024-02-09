@@ -25,12 +25,9 @@ export const Price = () => {
 }
 // стили секции
 const StyledPrice = styled.section`
-  padding: 50px 0 19px;
-  @media ${({theme}) => theme.media.tablet} {
-    padding: 30px 0 10px;
-  }
+  padding: 25px 0 25px;
   @media ${({theme}) => theme.media.mobile} {
-    padding: 20px 0 5px;
+    padding: 15px 0 10px;
   }
   ${SectionTitle}{
     margin-bottom: 65px;

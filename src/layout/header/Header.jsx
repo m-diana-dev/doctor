@@ -134,7 +134,6 @@ const HeaderBtn = styled.button`
   color: ${({theme})=>theme.colors.colorMain};
   font-size: 15px;
   line-height: 19px;
-  border-bottom: 1.5px dashed rgb(34, 160, 217);
   @media ${({theme}) => theme.media.mobileSmall} {
     font-size: 14px;
   }

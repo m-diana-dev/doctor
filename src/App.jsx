@@ -1,5 +1,5 @@
 import {Theme} from "./styles/Theme.jsx";
-import {useState} from "react";
+import {useReducer, useState} from "react";
 import {Header} from "./layout/header/Header.jsx";
 import {Menu} from "./layout/sections/menu/Menu.jsx";
 import {MainBlock} from "./layout/sections/main-block/MainBlock.jsx";
@@ -13,6 +13,8 @@ import {Map} from "./layout/sections/map/Map.jsx";
 import {Footer} from "./layout/footer/Footer.jsx";
 import {Sale} from "./layout/modals/sale/Sale.jsx";
 import {Callback} from "./layout/modals/callback/Callback.jsx";
+import {ServicesModal} from "./layout/modals/services/ServicesModal.jsx";
+import {servicesModalReducer, toggleServicesModalAC} from "./state/services-modal-reducer.jsx";
 
 
 function App() {
@@ -35,7 +37,7 @@ function App() {
         setOpenMenu(isMenuOpen)
     }
 
-    // Сосотояние для Модяльного окна со скидкой, используем хук useState из React
+    // Сосотояние для Модального окна со скидкой, используем хук useState из React
     // Когда состояние false - закрыто, когда true - открыто
     const [openSale, setOpenSale] = useState(true)
 
@@ -44,7 +46,7 @@ function App() {
         setOpenSale(isSaleOpen)
     }
 
-    // Сосотояние для Модяльного окна с формой, используем хук useState из React
+    // Сосотояние для Модального окна с формой, используем хук useState из React
     // Когда состояние false - закрыто, когда true - открыто
     const [openForm, setOpenForm] = useState(false);
 
@@ -54,17 +56,36 @@ function App() {
         setOpenForm(isFormOpen);
     };
 
+    // Сосотояние для Модального окна с формой, используем хук useState из React
+    // Когда состояние false - закрыто, когда true - открыто
+    // const [openServices, setOpenServices] = useState(false);
+
+    // Сосотояние для Модального окна услуг, используем хук useReducer из React
+    const [servicesModalData, dispatchServicesModalData] = useReducer(servicesModalReducer, {
+        open: false,
+        title: '',
+        list: []
+    });
+
+    // Функция обратного вызова (callback-функция) для изменения состояния Модяльного окна с формой
+    const isServicesOpenCallback = (isServicesOpen) => {
+        dispatchServicesModalData(toggleServicesModalAC(isServicesOpen));
+    };
+
     //Рендерим, отрисовываетм страницы сайта. Они обурнуты в Theme - компонент, который содержит ThemeProvider, GlobalStyle из styled-components, в котором определены основные стили сайта
     return (
         <>
-            <Theme isMenuOpen={openMenu || openSale || openForm}>
+            <Theme isMenuOpen={openMenu || openSale || openForm || servicesModalData.open}>
                 <Sale isSaleOpenCallback={isSaleOpenCallback} openSale={openSale}/>
                 <Callback openForm={openForm} isFormOpenCallback={isFormOpenCallback}/>
+                <ServicesModal title={servicesModalData.title} list={servicesModalData.list} openServices={servicesModalData.open}
+                               isServicesOpenCallback={isServicesOpenCallback}/>
                 <Header isMenuOpenCallback={isMenuOpenCallback} openMenu={openMenu} menuItems={menuItems}
                         isFormOpenCallback={isFormOpenCallback} openForm={openForm}/>
                 <Menu menuItems={menuItems}/>
                 <MainBlock/>
-                <Services/>
+                <Services openServices={servicesModalData.open} isServicesOpenCallback={isServicesOpenCallback}
+                          dispatch={dispatchServicesModalData}/>
                 <Doctors/>
                 <Appointment/>
                 <About/>

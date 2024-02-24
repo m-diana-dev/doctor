@@ -33,7 +33,7 @@ export const Callback = ({isFormOpenCallback, openForm}) => {
     // Отрисовка модального окна
     return (
         <StyledCallback isOpen={openForm}>
-            <CloseBtn onModalHandler={onModalHandler}/>
+            <CloseBtn onModalHandler={onModalHandler} idIcon={'close'}/>
             <StyledModalTile>
                 Заказать обратный звонок
             </StyledModalTile>

@@ -2,30 +2,60 @@ import styled from "styled-components";
 import {Container} from "../../../components/Container.js";
 import {FlexWrapp} from "../../../components/FlexWrapp.js";
 import {SectionTitle} from "../../../components/SectionTitle.js";
-import {ServicesItem, ServicesItemText, StyledServicesItem} from "./servicesItem/ServicesItem.jsx";
+import {ServicesItem, StyledServicesItem} from "./servicesItem/ServicesItem.jsx";
 
 
-//секция услуга
-export const Services = () => {
+//секция услуги. Принимает пропсы openServices, isServicesOpenCallback, dispatch
+export const Services = ({openServices, isServicesOpenCallback, dispatch}) => {
+    //массив данных для секции услуг
+    const servicesData = [
+        {
+            title: `Запись на прием врача\nв клинике`,
+            text: 'Наши врачи – это специалисты высшей категории и кандидаты медицинских наук. Они диагностируют и остановят процесс ухудшения вашего зрения.',
+            buttonText: 'Выбрать врача',
+            buttonLink: '#doctors',
+        },
+        {
+            title: `Выбрать услуги\nклиники`,
+            text: 'Диагностика, биометрия, подбор очков и линз. Записаться на прием можно в любое удобное для вас время.',
+            buttonText: 'Выбрать услугу',
+            buttonLink: '#price',
+        },
+        {
+            title: 'Диагностика',
+            text: 'В арсенале нашей клиники имеется широкий спектр диагностического оборудования, в том числе уникальные модели, для диагностики глазных заболеваний.',
+            buttonText: 'Подробнее',
+            titleModal: 'Мы предоставляем гарантию',
+            listModal: ['высокоточная и детальная диагностика зрения, а также исследование глазного дна, будут проведены в течение 1-2 часов, без утомительного ожидания;', 'по результатам диагностики пациент получит на руки подробную выписку о состоянии органа зрения и детальные рекомендации по лечению и профилактике имеющейся патологии;', 'пациент может проконсультироваться с врачом-офтальмологом;', 'клиника оснащена современным и безопасным оборудованием, позволяющим добиться высокой точности результатов диагностики;', 'принцип нашей работы: «внимание и подход к каждому пациенту!»']
+        },
+        {
+            title: 'Оптика',
+            text: 'Подбор очков для зрения или контактных линз — это весьма важная задача, требующая максимально точного решения. Именно от него будет зависеть острота зрения пациента.',
+            buttonText: 'Подробнее',
+            titleModal: 'Как происходит подбор очков или контактных линз в клинике?',
+            listModal: ['Врач-офтальмолог или оптометрист в нашем клинике внимательно выслушает Ваши жалобы и соберет первичный анамнез', 'Проведет комплексное обследование зрения, выяснив остроту зрения (вдали и вблизи), рефракцию, аккомодацию глаза и биомикроскопию', 'Определит радиус кривизны и диаметр роговицы', 'Предложит средство коррекции зрения и обязательно оценит бинокулярный баланс в предложенном средстве коррекции']
+        }
+    ]
     return (
         <ServicesStyled id='services'>
             <Container>
                 <SectionTitle>Основные услуги</SectionTitle>
                 <FlexWrapp justify={'center'} wrap={'wrap'} align={'stretch'}>
-                    <ServicesItem title={`Запись на прием врача\nв клинике`}
-                                  text={'Наши врачи – это специалисты высшей категории и кандидаты медицинских наук. Они диагностируют и остановят процесс ухудшения вашего зрения.'}
-                                  buttonText={'Выбрать врача'}
-                                  buttonLink={'#doctors'}/>
-                    <ServicesItem title={`Выбрать услуги\nклиники`}
-                                  text={'Диагностика, биометрия, подбор очков и линз. Записаться на прием можно в любое удобное для вас время.'}
-                                  buttonText={'Выбрать услугу'}
-                                  buttonLink={'#price'}/>
-                    <ServicesItem title={'Диагностика'}
-                                  text={'В арсенале нашей клиники имеется широкий спектр диагностического оборудования, в том числе уникальные модели, для диагностики глазных заболеваний.'}
-                                  icon={'services1'} iconW={'90'} iconH={'81'} iconBox={'0 0 60 51'}/>
-                    <ServicesItem title={'Оптика'}
-                                  text={'Подбор очков для зрения или контактных линз — это весьма важная задача, требующая максимально точного решения. Именно от него будет зависеть острота зрения пациента и, следовательно, безопасность его жизни.'}
-                                  icon={'services2'} iconW={'121'} iconH={'108'} iconBox={'0 0 80 51'}/>
+                    {/*с помощью map проходимся по массиву и отрисовываем услуги*/}
+                    {servicesData.map((el, index) => {
+                        return (
+                            <ServicesItem key={index}
+                                          title={el.title}
+                                          text={el.text}
+                                          buttonText={el.buttonText}
+                                          buttonLink={el.buttonLink}
+                                          titleModal={el.titleModal}
+                                          listModal={el.listModal}
+                                          openServices={openServices}
+                                          isServicesOpenCallback={isServicesOpenCallback}
+                                          dispatch={dispatch}/>
+                        )
+                    })}
                 </FlexWrapp>
             </Container>
         </ServicesStyled>
@@ -60,23 +90,12 @@ const ServicesStyled = styled.section`
     &:nth-child(2) {
       margin-bottom: 15px;
       justify-content: center;
-      text-align: center;
       @media ${({theme}) => theme.media.tablet} {
         width: calc(50% - 10px);
         margin-bottom: 10px;
       }
       @media screen and (max-width: 600px) {
         width: 100%;
-      }
-
-      ${ServicesItemText} {
-        max-width: 355px;
-        text-align: left;
-        margin: 0 auto 10px;
-        @media screen and (max-width: 600px) {
-          max-width: 100%;
-          text-align: center;
-        }
       }
     }
 
@@ -87,19 +106,9 @@ const ServicesStyled = styled.section`
         width: calc(50% - 10px);
         min-width: calc(50% - 10px);
       }
-      @media ${({theme}) => theme.media.mobile} {
-        text-align: center;
-      }
       @media screen and (max-width: 600px) {
         width: 100%;
         margin-bottom: 10px;
-      }
-
-      ${ServicesItemText} {
-        max-width: 350px;
-        @media ${({theme}) => theme.media.mobile} {
-          max-width: 100%;
-        }
       }
     }
   }

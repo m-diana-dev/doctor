@@ -17,7 +17,7 @@ export const Sale = ({openSale, isSaleOpenCallback}) => {
     // Отрисовка модального окна
     return (
         <StyledSale isOpen={openSale}>
-            <CloseBtn onModalHandler={onModalHandler}/>
+            <CloseBtn onModalHandler={onModalHandler} idIcon={'close'}/>
             <StyledModalTile>
                 Cкидка 10% на первое посещение
             </StyledModalTile>

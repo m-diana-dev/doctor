@@ -1,13 +1,31 @@
 import styled from "styled-components";
+import {setDataDoctorsModalAC} from "../../../../state/doctors-reducer.jsx";
 
 
-//компонент врача, принимает пропсы img, name, position
-export const DoctorsItem = ({img, name, position}) => {
+//компонент врача, принимает пропсы img, name, position, imgPopup, positionPopup, experience, specialization, dispatch, openDoctors, isDoctorsOpenCallback
+export const DoctorsItem = ({
+                                img,
+                                name,
+                                position,
+                                imgPopup,
+                                positionPopup,
+                                experience,
+                                specialization,
+                                dispatch,
+                                openDoctors,
+                                isDoctorsOpenCallback
+                            }) => {
+
+    //функция отрабатывает при клике по кнопке Подробнее (меняет состояние модального окна услуги)
+    const onBtnHandler = () => {
+        isDoctorsOpenCallback(!openDoctors);
+        dispatch(setDataDoctorsModalAC(name, imgPopup, positionPopup, experience, specialization))
+    };
     return (
-        <StyledDoctorsItem>
+        <StyledDoctorsItem onClick={onBtnHandler}>
             <img src={img} alt="doctor"/>
             <DoctorsItemContent>
-                <DoctorsItemName>{name}</DoctorsItemName>
+                <DoctorsItemName>{name.firstName + ' ' + name.lastName}</DoctorsItemName>
                 <DoctorsItemPosition>{position}</DoctorsItemPosition>
             </DoctorsItemContent>
         </StyledDoctorsItem>
@@ -23,7 +41,7 @@ export const StyledDoctorsItem = styled.article`
   color: ${({theme}) => theme.colors.lightText};
   display: flex;
   flex-direction: column;
-  @media ${({theme})=>theme.media.mobile}{
+  @media ${({theme}) => theme.media.mobile} {
     border-radius: 10px;
   }
   @media (any-hover: hover) {
@@ -40,7 +58,7 @@ export const StyledDoctorsItem = styled.article`
     transition: all .3s;
     position: relative;
     z-index: -1;
-    @media ${({theme})=>theme.media.mobileSmall}{
+    @media ${({theme}) => theme.media.mobileSmall} {
       //height: 250px;
     }
   }
@@ -57,7 +75,7 @@ const DoctorsItemName = styled.div`
   font-weight: 700;
   margin-bottom: 7px;
   flex: 1 1 auto;
-  @media ${({theme})=>theme.media.mobile}{
+  @media ${({theme}) => theme.media.mobile} {
     font-size: 16px;
   }
 `

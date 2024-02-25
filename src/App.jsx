@@ -14,7 +14,9 @@ import {Footer} from "./layout/footer/Footer.jsx";
 import {Sale} from "./layout/modals/sale/Sale.jsx";
 import {Callback} from "./layout/modals/callback/Callback.jsx";
 import {ServicesModal} from "./layout/modals/services/ServicesModal.jsx";
-import {servicesModalReducer, toggleServicesModalAC} from "./state/services-modal-reducer.jsx";
+import {servicesReducer, toggleServicesModalAC} from "./state/services-reducer.jsx";
+import {doctorsReducer, toggleDoctorsModalAC} from "./state/doctors-reducer.jsx";
+import {DoctorsModal} from "./layout/modals/doctors/DoctorsModal.jsx";
 
 
 function App() {
@@ -56,12 +58,8 @@ function App() {
         setOpenForm(isFormOpen);
     };
 
-    // Сосотояние для Модального окна с формой, используем хук useState из React
-    // Когда состояние false - закрыто, когда true - открыто
-    // const [openServices, setOpenServices] = useState(false);
-
     // Сосотояние для Модального окна услуг, используем хук useReducer из React
-    const [servicesModalData, dispatchServicesModalData] = useReducer(servicesModalReducer, {
+    const [servicesModalData, dispatchServicesModalData] = useReducer(servicesReducer, {
         open: false,
         title: '',
         list: []
@@ -72,21 +70,46 @@ function App() {
         dispatchServicesModalData(toggleServicesModalAC(isServicesOpen));
     };
 
+    // Сосотояние для Модального окна врачей, используем хук useReducer из React
+    const [doctorsModalData, dispatchDoctorsModalData] = useReducer(doctorsReducer, {
+        open: false,
+        img: '',
+        name: '',
+        position: '',
+        experience: '',
+        specialization: '',
+    });
+
+    // Функция обратного вызова (callback-функция) для изменения состояния Модяльного окна врачей
+    const isDoctorsOpenCallback = (isDoctorsOpen) => {
+        dispatchDoctorsModalData(toggleDoctorsModalAC(isDoctorsOpen));
+        console.log(isDoctorsOpen)
+    };
+
     //Рендерим, отрисовываетм страницы сайта. Они обурнуты в Theme - компонент, который содержит ThemeProvider, GlobalStyle из styled-components, в котором определены основные стили сайта
     return (
         <>
-            <Theme isMenuOpen={openMenu || openSale || openForm || servicesModalData.open}>
+            <Theme isMenuOpen={openMenu || openSale || openForm || servicesModalData.open || doctorsModalData.open}>
                 <Sale isSaleOpenCallback={isSaleOpenCallback} openSale={openSale}/>
                 <Callback openForm={openForm} isFormOpenCallback={isFormOpenCallback}/>
-                <ServicesModal title={servicesModalData.title} list={servicesModalData.list} openServices={servicesModalData.open}
+                <ServicesModal title={servicesModalData.title} list={servicesModalData.list}
+                               openServices={servicesModalData.open}
                                isServicesOpenCallback={isServicesOpenCallback}/>
+                <DoctorsModal img={doctorsModalData.img}
+                              name={doctorsModalData.name}
+                              position={doctorsModalData.position}
+                              experience={doctorsModalData.experience}
+                              specialization={doctorsModalData.specialization}
+                              openDoctors={doctorsModalData.open}
+                              isDoctorsOpenCallback={isDoctorsOpenCallback}/>
                 <Header isMenuOpenCallback={isMenuOpenCallback} openMenu={openMenu} menuItems={menuItems}
                         isFormOpenCallback={isFormOpenCallback} openForm={openForm}/>
                 <Menu menuItems={menuItems}/>
                 <MainBlock/>
                 <Services openServices={servicesModalData.open} isServicesOpenCallback={isServicesOpenCallback}
                           dispatch={dispatchServicesModalData}/>
-                <Doctors/>
+                <Doctors openDoctors={doctorsModalData.open} isDoctorsOpenCallback={isDoctorsOpenCallback}
+                         dispatch={dispatchDoctorsModalData}/>
                 <Appointment/>
                 <About/>
                 <Price/>

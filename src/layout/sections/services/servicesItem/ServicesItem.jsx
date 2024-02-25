@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import {Button, StyledButton} from "../../../../components/button/Button.jsx";
-import {setDataServicesModalAC} from "../../../../state/services-modal-reducer.jsx";
+import {setDataServicesModalAC} from "../../../../state/services-reducer.jsx";
 
 
 //компонент услуги сайта, принимает пропсы title, text, buttonText, buttonLink, openServices, isServicesOpenCallback, titleModal, listModal, dispatch

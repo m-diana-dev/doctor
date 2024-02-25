@@ -55,7 +55,7 @@ export const GlobalStyle = createGlobalStyle`
       height: 100%;
       background: rgba(0, 0, 0, 0.6);
       z-index: 10;
-      pointer-events: none;
+      pointer-events: ${(props) => (props.theme.isMenuOpen ? 'auto' : 'none')};
       opacity: ${(props) => (props.theme.isMenuOpen ? '1' : '0')};
       transition: all .3s;
     }

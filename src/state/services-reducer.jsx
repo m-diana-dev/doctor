@@ -1,6 +1,6 @@
 
 //reducer - принимает старый state (состояние) и action и возвращает обновленный state. В нашем случает обновляем двнные в модальном окне услуг
-export const servicesModalReducer = (state, action) => {
+export const servicesReducer = (state, action) => {
     switch (action.type) {
         case "SERVICES/SET-DATA-MODAL":
             return {...state, title: action.title, list: action.list}

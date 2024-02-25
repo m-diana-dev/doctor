@@ -6,10 +6,53 @@ import doctor1 from '../../../assets/images/doctors/item-1.jpeg'
 import doctor2 from '../../../assets/images/doctors/item-2.jpeg'
 import doctor3 from '../../../assets/images/doctors/item-3.jpeg'
 import doctor4 from '../../../assets/images/doctors/item-4.jpeg'
+import doctor5 from '../../../assets/images/doctors/item-5.jpg'
+import doctor6 from '../../../assets/images/doctors/item-6.jpg'
+import doctor7 from '../../../assets/images/doctors/item-7.jpg'
+import doctor8 from '../../../assets/images/doctors/item-8.jpg'
 
 
 //секция врачи
-export const Doctors = () => {
+export const Doctors = ({openDoctors, isDoctorsOpenCallback, dispatch}) => {
+    //массив данных для секции врачи
+    const doctorsData = [
+        {
+            img:doctor1,
+            imgExpanded: doctor5,
+            name: {firstName: 'Лейля', lastName: 'Салихова', surName: 'Рифовна'},
+            position: 'Врач-офтальмолог',
+            positionExpanded: 'Главный врач-офтальмолог высшей категории, офтальмохирург',
+            experience: '17 лет',
+            specialization: 'диагностика зрения, удаление катаракты, лечение глаукомы',
+        },
+        {
+            img:doctor2,
+            imgExpanded: doctor6,
+            name: {firstName: 'Ирина', lastName: 'Уэтова', surName: 'Викторовна'},
+            position: 'Врач-офтальмолог',
+            positionExpanded: 'Врач-офтальмолог высшей категории, офтальмохирург',
+            experience: '11 лет',
+            specialization: 'диагностика зрения',
+        },
+        {
+            img:doctor3,
+            imgExpanded: doctor7,
+            name: {firstName: 'Зульфия', lastName: 'Шакирзянова', surName: 'Дакирзяновна'},
+            position: 'Врач-офтальмолог',
+            positionExpanded: 'Врач-офтальмолог, детский врач-офтальмолог',
+            experience: '10 лет',
+            specialization: 'детское',
+        },
+        {
+            img:doctor4,
+            imgExpanded: doctor8,
+            name: {firstName: 'Елена', lastName: 'Корнева', surName: 'Викторовна'},
+            position: 'Врач-офтальмолог',
+            positionExpanded: 'Врач-офтальмолог, кандидат медицинских наук',
+            experience: '12 лет',
+            specialization: 'диагностика заболеваний сетчатки и зрительного нерва, лечение глаукомы',
+        },
+    ]
     return (
         <StyledDoctors id='doctors'>
             <Container>
@@ -18,10 +61,22 @@ export const Doctors = () => {
                     У нас  работают только опытные специалисты с многолетним опытом работы.
                 </DoctorsText>
                 <DoctorsItems>
-                    <DoctorsItem img={doctor1} name={'Лейля Салихова'} position={'Врач-офтальмолог'}/>
-                    <DoctorsItem img={doctor2} name={'Ирина Уэтова'} position={'Врач-офтальмолог'}/>
-                    <DoctorsItem img={doctor3} name={'Зульфия Шакирзянова'} position={'Врач-офтальмолог'}/>
-                    <DoctorsItem img={doctor4} name={'Елена Викторовна'} position={'Врач-офтальмолог'}/>
+                    {/*с помощью map проходимся по массиву и отрисовываем докторов*/}
+                    {doctorsData.map((el, index)=>{
+                        return(
+                            <DoctorsItem key={index}
+                                         img={el.img}
+                                         name={el.name}
+                                         position={el.position}
+                                         imgPopup={el.imgExpanded}
+                                         positionPopup={el.positionExpanded}
+                                         experience={el.experience}
+                                         specialization={el.specialization}
+                                         openDoctors={openDoctors}
+                                         isDoctorsOpenCallback={isDoctorsOpenCallback}
+                                         dispatch={dispatch}/>
+                        )
+                    })}
                 </DoctorsItems>
             </Container>
         </StyledDoctors>

@@ -41,6 +41,7 @@ export const StyledDoctorsItem = styled.article`
   color: ${({theme}) => theme.colors.lightText};
   display: flex;
   flex-direction: column;
+  cursor: pointer;
   @media ${({theme}) => theme.media.mobile} {
     border-radius: 10px;
   }

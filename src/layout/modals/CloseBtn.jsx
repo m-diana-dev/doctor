@@ -10,10 +10,11 @@ export const CloseBtn = ({onModalHandler, idIcon}) => {
     );
 }
 
-const StyledCloseBtn = styled.button`
+export const StyledCloseBtn = styled.button`
   position: absolute;
   top: 15px;
   right: 15px;
+  background: transparent;
   @media ${({theme})=>theme.media.desktop}{
     top: 10px;
     right: 10px;

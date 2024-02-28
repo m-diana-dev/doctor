@@ -44,7 +44,11 @@ export const Callback = ({isFormOpenCallback, openForm}) => {
                     <Input {...register('fio',
                         {
                             required: 'обязательное поле',
-                            minLength: {value: 5, message: 'минимальная длина - 5 символов'}
+                            minLength: {value: 5, message: 'минимальная длина - 5 символов'},
+                            pattern: {
+                                value: /^[А-ЯЁ][а-яё]*([-][А-ЯЁ][а-яё]*)?\s[А-ЯЁ][а-яё]*\s[А-ЯЁ][а-яё]*$/,
+                                message: 'некорректные данные ФИО'
+                            }
                         })}
                            placeholder='ФИО' type="text"></Input>
                     {/*Отрисовыаем ошибки, если они есть*/}
@@ -136,7 +140,7 @@ const InputWrapp = styled.div`
   width: 100%;
   margin-bottom: 20px;
   @media ${({theme}) => theme.media.mobileSmall} {
-    margin-bottom: 10px;
+    margin-bottom: 15px;
   }
 `
 

@@ -1,5 +1,6 @@
 import styled, {css} from "styled-components";
 import {useEffect, useRef} from "react";
+import {CloseBtn, StyledCloseBtn} from "../CloseBtn.jsx";
 
 
 // Модальное окносо врачей. принимает как пропсы openDoctors, isDoctorsOpenCallback для изменения состояния
@@ -22,9 +23,15 @@ export const DoctorsModal = ({img, name, position, experience, specialization, o
         };
     }, []);
 
+    // Функция обратного вызова, которая меняет состояние модального окна, с ее помощью закрываем модальное окно
+    const onModalHandler = () => {
+        isDoctorsOpenCallback(!openDoctors)
+    }
+
     // Отрисовка модального окна
     return (
         <StyledDoctorsModal isOpen={openDoctors} ref={modalRef}>
+            <CloseBtn onModalHandler={onModalHandler} idIcon={'close'}/>
             <DoctorsModalContent>
                 <DoctorsModalTitle>{name.lastName + `\n` + name.firstName + `\n`+ name.surName}</DoctorsModalTitle>
                 <DoctorsModalItem>{position}</DoctorsModalItem>
@@ -58,9 +65,18 @@ const StyledDoctorsModal = styled.div`
   @media ${({theme}) => theme.media.mobile} {
     flex-direction: column;
   }
+
   ${props => props.isOpen && css`
     display: flex;
   `}
+  ${StyledCloseBtn} {
+    top: 10px;
+    right: 10px;
+    svg {
+      height: 30px;
+      width: 30px;
+    }
+  }
 `
 const DoctorsModalContent = styled.div`
   padding: 60px 45px 25px 55px;

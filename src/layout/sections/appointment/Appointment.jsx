@@ -53,7 +53,11 @@ export const Appointment = () => {
                                     <Input {...register('fio',
                                         {
                                             required: 'обязательное поле',
-                                            minLength: {value: 5, message: 'минимальная длина - 5 символов'}
+                                            minLength: {value: 5, message: 'минимальная длина - 5 символов'},
+                                            pattern: {
+                                                value: /^[А-ЯЁ][а-яё]*([-][А-ЯЁ][а-яё]*)?\s[А-ЯЁ][а-яё]*\s[А-ЯЁ][а-яё]*$/,
+                                                message: 'некорректные данные ФИО'
+                                            }
                                         })}
                                            placeholder='ФИО' type="text"></Input>
                                     {/*Отрисовыаем ошибки, если они есть*/}
@@ -172,7 +176,7 @@ const AppointmentForm = styled.form`
     background: linear-gradient(90.00deg, rgba(0, 0, 0, 0.2), rgb(59, 186, 194) 100%);
     max-width: 200px;
     @media screen and (max-width: 1400px) {
-      margin-top: 10px;
+      margin-top: 15px;
       max-width: 100%;
     }
 
@@ -247,7 +251,7 @@ const InputWrapp = styled.div`
   &:nth-child(3) {
     margin-bottom: 20px;
     @media screen and (max-width: 1400px) {
-      margin-bottom: 10px;
+      margin-bottom: 15px;
     }
   }
 `

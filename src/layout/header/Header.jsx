@@ -3,7 +3,6 @@ import {Container} from "../../components/Container.js";
 import {FlexWrapp} from "../../components/FlexWrapp.js";
 import LogoImg from '../../assets/images/logo.png'
 import {Social, SocialList} from "../../components/social/Social.jsx";
-import {Icon} from "../../components/icon/Icon.jsx";
 
 
 //Шапка сайта, принимает пропсы openMenu, isMenuOpenCallback, menuItems, isFormOpenCallback, openForm
@@ -35,9 +34,6 @@ export const Header = ({openMenu, isMenuOpenCallback, menuItems, isFormOpenCallb
                             <HeaderBtn onClick={onBtnHandler}>Обратный звонок</HeaderBtn>
                         </HeaderConnection>
                         <Social items={[{id: 1, title: 'vk'}, {id: 2, title: 'ok'}]}></Social>
-                        <HeaderSearch>
-                            <Icon id={'search'} width={'20'} height={'20'} viewBox={'0 0 20 20'}/>
-                        </HeaderSearch>
                         <Menu isOpen={openMenu}>
                             <MenuBurger onClick={onBurgerHandler}><span></span></MenuBurger>
                             <MenuBody>
@@ -77,12 +73,8 @@ const HeaderWrapp = styled.div`
   align-items: center;
   color: rgb(27, 29, 50); 
   ${SocialList}{
-    margin-right: 60px;
-    @media ${({theme})=>theme.media.desktop}{
-      margin-right: 40px;
-    }
-    @media ${({theme})=>theme.media.tablet}{
-      margin-right: 20px;
+    @media ${({theme})=>theme.media.mobile}{
+      margin-right: 15px;
     }
     @media ${({theme}) => theme.media.mobileSmall} {
       display: none;
@@ -136,13 +128,6 @@ const HeaderBtn = styled.button`
   line-height: 19px;
   @media ${({theme}) => theme.media.mobileSmall} {
     font-size: 14px;
-  }
-`
-const HeaderSearch = styled.button`
-  align-self: flex-end;
-  margin-bottom: 7px;
-  @media ${({theme})=>theme.media.mobile}{
-    display: none;
   }
 `
 const Menu = styled.div`

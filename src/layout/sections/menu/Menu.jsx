@@ -22,10 +22,7 @@ export const Menu = ({menuItems}) => {
 //стили для меню
 
 const StyledMenu = styled.section`
-  padding: 100px 0 20px;
-  @media ${({theme}) => theme.media.tablet} {
-    padding: 70px 0 20px;
-  }
+  padding: 40px 0 20px;
   @media ${({theme}) => theme.media.mobile} {
     display: none;
   }

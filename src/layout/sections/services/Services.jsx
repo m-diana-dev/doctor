@@ -64,7 +64,10 @@ export const Services = ({openServices, isServicesOpenCallback, dispatch}) => {
 
 // стили секции услуги
 const ServicesStyled = styled.section`
-  padding: 40px 0 10px;
+  padding: 40px 0;
+  @media ${({theme})=>theme.media.tablet}{
+    padding: 25px 0;
+  }
 
   ${SectionTitle} {
     margin-bottom: 50px;

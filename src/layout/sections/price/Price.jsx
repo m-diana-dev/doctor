@@ -59,14 +59,16 @@ export const Price = () => {
 }
 // стили секции
 const StyledPrice = styled.section`
-  padding: 25px 0 25px;
-  @media ${({theme}) => theme.media.mobile} {
-    padding: 15px 0 10px;
+  background: linear-gradient(90deg, #0B79BA 0%, #3BBAC2 100%);
+  padding: 40px 0;
+  @media ${({theme})=>theme.media.tablet}{
+    padding: 25px 0;
   }
 
   ${SectionTitle} {
     margin-bottom: 65px;
     position: relative;
+    color: #FFFFFF;
     @media ${({theme}) => theme.media.mobile} {
       margin-bottom: 30px;
     }
@@ -76,7 +78,7 @@ const StyledPrice = styled.section`
       position: absolute;
       width: 400px;
       height: 1px;
-      background-color: rgb(0, 0, 0);
+      background-color: #FFFFFF;
       bottom: -18px;
       left: 50%;
       transform: translateX(-50%);

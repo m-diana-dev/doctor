@@ -26,7 +26,7 @@ export const PriceItem = ({title, value, text}) => {
 }
 // стили компонента
 const StyledPriceItem = styled.div`
-  color: rgb(27, 29, 50);
+  color: #fff;
   font-size: 32px;
   font-weight: 600;
   line-height: 1.1;
@@ -95,7 +95,6 @@ const PriceItemBottom = styled.div`
   font-weight: 500;
   font-size: 20px;
   line-height: 120%;
-  color: #1b1d32;
   margin-top: 10px;
   @media ${({theme}) => theme.media.tablet} {
     font-size: 18px;
